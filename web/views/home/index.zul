@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?init class="org.zkoss.zk.ui.util.Composition" arg0="../layout/application.zul"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="html">
+    <window self="@{define(main)}">
+        <h:h1>Bem vindo ao Opinion!</h:h1>
+    </window>
+</zk>

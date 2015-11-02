@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="html">
+    <window self="@{define(main)}">
+        <h:h1>Bem vindo ao Opinion!</h:h1>
+    </window>
+</zk>

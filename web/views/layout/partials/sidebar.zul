@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul">
-
+    <menubar id="menubar" orient="vertical" autodrop="true"
+             apply="org.zkoss.bind.BindComposer"
+             viewModel="@id('menu') @init('uicontroller.MenuVM')">
+                
+        <menuitem label="Home" onClick="@command('goHome')" />
+        <menu label="Cadastros">
+            <menupopup>
+                <menuitem label="Estado" onClick="alert(self.label)" />
+                <menuitem label="Cidade" onClick="alert(self.label)" />
+                <menuitem label="Usuários" onClick="alert(self.label)" />
+                <menuitem label="Fornecedores" onClick="alert(self.label)" />
+            </menupopup>
+        </menu>            
+        <menuitem label="Logar" visible="@bind(!menu.isLogged)"  onClick="@command('goHome')" />
+        <menuitem label="Sair" visible="@bind(menu.isLogged)" onClick="alert(self.label)" />
+        <menuseparator></menuseparator>
+        <menuitem label="Ajuda" onClick="alert(self.label)" />
+    </menubar>
 </zk>

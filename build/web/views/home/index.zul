@@ -2,7 +2,11 @@
 <?init class="org.zkoss.zk.ui.util.Composition" arg0="../layout/application.zul"?>
 
 <zk xmlns="http://www.zkoss.org/2005/zul" xmlns:h="html">
-    <window self="@{define(main)}">
+    <window self="@{define(main)}"
+            apply="org.zkoss.bind.BindComposer"
+            viewModel="@id('vm') @init('uicontroller.HomeVM')">
         <h:h1>Bem vindo ao Opinion!</h:h1>
+        
+        <h:p>Para deixar sua opinião sobre nossa programação, entre com seu CPF no campo abaixo:</h:p>
     </window>
 </zk>

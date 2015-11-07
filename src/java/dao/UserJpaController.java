@@ -17,6 +17,8 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.NoResultException;
+import javax.persistence.NonUniqueResultException;
 import model.User;
 import model.Vote;
 
@@ -253,5 +255,18 @@ public class UserJpaController implements Serializable {
             em.close();
         }
     }
-    
+
+    public User getUserbyDoc(String doc) {
+        Query q = getEntityManager().createNamedQuery("User.findByDoc");
+
+        q.setParameter("doc", doc);
+
+        try {
+            return (User) q.getSingleResult();
+        } catch (NoResultException ex) {
+            return null;
+        } catch (NonUniqueResultException ex) {
+            return null;
+        }
+    }
 }

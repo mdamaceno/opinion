@@ -1,0 +1,45 @@
+<project name="JettyServerInstance" default="run" basedir=".">
+    <property name="pre-run" value="true" />
+
+    <target name="pre-run" if="${pre-run}" >
+        <java jar="${start.jar}" fork="true" >
+            <arg line="--create-files"/>
+        </java>    
+    </target>
+
+    <target name="run" depends="pre-run" >
+        <java jar="${start.jar}" fork="true" >
+            <jvmarg line="${npn.boot}" />
+            <arg line="STOP.PORT=${stop.port}"/>
+            <arg line="STOP.KEY=${stop.key}"/>
+        </java>    
+    </target>
+    <target name="stop" >
+        <java jar="${start.jar}" fork="true" >
+            <arg line="STOP.PORT=${stop.port}"/>
+            <arg line="STOP.KEY=${stop.key}"/>
+            <arg line="--stop"/>
+        </java>    
+    </target>
+    
+    <target name="debug" depends="pre-run">
+        <java jar="${start.jar}" fork="true" >
+            <jvmarg line="${debug.args.line}"/>
+            <jvmarg line="-Xrunjdwp:transport=${server.debug.transport},address=${server.debug.port},server=y,suspend=n"/>
+            <jvmarg value="-Dfile.encoding=${runtime.encoding}"/>            
+            <arg line="STOP.PORT=${stop.port}"/>
+            <arg line="STOP.KEY=${stop.key}"/>
+            
+        </java>
+    </target>
+    
+    <target name="profile" depends="pre-run">        
+        <echo message="Profiler args: ${profiler.args}" />
+        <java jar="${start.jar}" fork="true" >
+            <jvmarg line="${profiler.args}"/>
+            <arg line="STOP.PORT=${stop.port}"/>
+            <arg line="STOP.KEY=${stop.key}"/>
+        </java>
+    </target>
+    
+</project>

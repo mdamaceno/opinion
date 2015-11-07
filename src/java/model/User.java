@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author mdamaceno
  */
 @Entity
-@Table(catalog = "opinion", schema = "", uniqueConstraints = {
+@Table(catalog = "opinion", schema = "", name="user", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"doc"}),
     @UniqueConstraint(columnNames = {"email"})})
 @XmlRootElement

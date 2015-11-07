@@ -8,5 +8,21 @@
         <h:h1>Bem vindo ao Opinion!</h:h1>
         
         <h:p>Para deixar sua opinião sobre nossa programação, entre com seu CPF no campo abaixo:</h:p>
+        
+        <grid>
+            <columns>
+                <column height="0px" width="120px" />
+            </columns>
+            <rows>
+                <row>
+                    <cell >CPF</cell>
+                    <cell ><textbox width="200px" value="@bind(vm.doc)" class="inp" /></cell>
+                    <cell colspan="3" align="left" >
+                        <button label="Entrar" onClick="@command('login')" class="btn btn-success" />
+                    </cell>
+                </row>
+            </rows>            
+        </grid>
+
     </window>
 </zk>

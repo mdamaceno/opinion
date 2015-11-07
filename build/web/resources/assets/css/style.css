@@ -11,3 +11,20 @@
 .center-right-inner {
     background: azure;
 }
+
+.inp {
+    padding: .8em;
+    border: 1px solid #5F9EA0;
+}
+
+.btn {
+    padding: .8em;
+    background: #EEE;
+    border: 1px solid rgba(0,0,0,.5);
+    color: #333;
+}
+
+.btn-success {
+    background: #2E8B57;
+    color: #EEE;
+}

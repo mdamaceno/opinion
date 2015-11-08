@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
  * @author mdamaceno
  */
 @Entity
-@Table(catalog = "opinion", schema = "", name="user", uniqueConstraints = {
+@Table(catalog = "opinion", schema = "", name = "user", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"doc"}),
     @UniqueConstraint(columnNames = {"email"})})
 @XmlRootElement
@@ -39,7 +39,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "User.findByAddress", query = "SELECT u FROM User u WHERE u.address = :address"),
     @NamedQuery(name = "User.findByPhoneNumber", query = "SELECT u FROM User u WHERE u.phoneNumber = :phoneNumber"),
     @NamedQuery(name = "User.findByDoc", query = "SELECT u FROM User u WHERE u.doc = :doc")})
-public class User implements Serializable {
+public class User implements Serializable
+{
+
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -64,95 +66,116 @@ public class User implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private List<Vote> voteList;
 
-    public User() {
+    public User()
+    {
     }
 
-    public User(Integer id) {
+    public User(Integer id)
+    {
         this.id = id;
     }
 
-    public User(Integer id, String name, String email, String doc) {
+    public User(Integer id, String name, String email, String doc)
+    {
         this.id = id;
         this.name = name;
         this.email = email;
         this.doc = doc;
     }
 
-    public Integer getId() {
+    public Integer getId()
+    {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Integer id)
+    {
         this.id = id;
     }
 
-    public String getName() {
+    public String getName()
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name)
+    {
         this.name = name;
     }
 
-    public String getEmail() {
+    public String getEmail()
+    {
         return email;
     }
 
-    public void setEmail(String email) {
+    public void setEmail(String email)
+    {
         this.email = email;
     }
 
-    public String getAddress() {
+    public String getAddress()
+    {
         return address;
     }
 
-    public void setAddress(String address) {
+    public void setAddress(String address)
+    {
         this.address = address;
     }
 
-    public String getPhoneNumber() {
+    public String getPhoneNumber()
+    {
         return phoneNumber;
     }
 
-    public void setPhoneNumber(String phoneNumber) {
+    public void setPhoneNumber(String phoneNumber)
+    {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getDoc() {
+    public String getDoc()
+    {
         return doc;
     }
 
-    public void setDoc(String doc) {
+    public void setDoc(String doc)
+    {
         this.doc = doc;
     }
 
     @XmlTransient
-    public List<Comment> getCommentList() {
+    public List<Comment> getCommentList()
+    {
         return commentList;
     }
 
-    public void setCommentList(List<Comment> commentList) {
+    public void setCommentList(List<Comment> commentList)
+    {
         this.commentList = commentList;
     }
 
     @XmlTransient
-    public List<Vote> getVoteList() {
+    public List<Vote> getVoteList()
+    {
         return voteList;
     }
 
-    public void setVoteList(List<Vote> voteList) {
+    public void setVoteList(List<Vote> voteList)
+    {
         this.voteList = voteList;
     }
 
     @Override
-    public int hashCode() {
+    public int hashCode()
+    {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);
         return hash;
     }
 
     @Override
-    public boolean equals(Object object) {
+    public boolean equals(Object object)
+    {
         // TODO: Warning - this method won't work in the case the id fields are not set
         if (!(object instanceof User)) {
             return false;
@@ -165,8 +188,9 @@ public class User implements Serializable {
     }
 
     @Override
-    public String toString() {
+    public String toString()
+    {
         return "model.User[ id=" + id + " ]";
     }
-    
+
 }

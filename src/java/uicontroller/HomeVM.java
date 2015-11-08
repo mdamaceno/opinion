@@ -19,13 +19,15 @@ import org.zkoss.zul.Messagebox;
  *
  * @author mdamaceno
  */
-public class HomeVM {
+public class HomeVM
+{
 
     private String doc;
 
     @Command
     @NotifyChange({"doc"})
-    public void login() {
+    public void login()
+    {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("OpinionPU");
 
         User user = new UserJpaController(emf).getUserbyDoc(doc);
@@ -41,11 +43,13 @@ public class HomeVM {
         }
     }
 
-    public String getDoc() {
+    public String getDoc()
+    {
         return doc;
     }
 
-    public void setDoc(String doc) {
+    public void setDoc(String doc)
+    {
         this.doc = doc;
     }
 }

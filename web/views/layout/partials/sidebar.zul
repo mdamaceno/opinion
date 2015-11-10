@@ -14,8 +14,8 @@
                 <menuitem label="Fornecedores" onClick="alert(self.label)" />
             </menupopup>
         </menu>            
-        <menuitem label="Logar" visible="@bind(!menu.isLogged)"  onClick="@command('goHome')" />
-        <menuitem label="Sair" visible="@bind(menu.isLogged)" onClick="alert(self.label)" />
+        <menuitem label="Logar" visible="@bind(!menu.isLogged)" onClick="@command('goHome')" />
+        <menuitem label="Sair" visible="@bind(menu.isLogged)" onClick="@command('goOut')" />
         <menuseparator></menuseparator>
         <menuitem label="Ajuda" onClick="alert(self.label)" />
     </menubar>

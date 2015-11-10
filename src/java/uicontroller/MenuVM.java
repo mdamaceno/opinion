@@ -30,6 +30,13 @@ public class MenuVM {
             Executions.sendRedirect("home.zul");
         }
     }
+    
+    @Command
+    public void goOut() {
+        Sessions.getCurrent().invalidate();
+        confirmIsLogged();
+        Executions.sendRedirect("/");
+    }
 
     public boolean isIsLogged() {
         return isLogged;

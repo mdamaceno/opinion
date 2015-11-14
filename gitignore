@@ -1,4 +1,6 @@
-nbproject/private/
+nbproject/*
+!nbproject/project.properties
+!nbproject/project.xml
 build/
 nbbuild/
 dist/
@@ -6,3 +8,13 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 .nb-gradle/
+core
+*.class
+
+*.so
+*.log
+*.out
+*~
+*.swp
+*.DS_Store
+*.lock
